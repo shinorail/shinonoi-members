@@ -6,15 +6,24 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<header>
-    <h1>フォロワー限定コンテンツ（試作）</h1>
+
+<header class="header">
+    <img src="assets/img/logo.png" class="logo">
+    <button class="hamburger" id="hamburgerBtn">☰</button>
+    <nav id="navMenu">
+        <a href="index.html">ホーム</a>
+        <a href="login.html">ログイン</a>
+        <a href="register.html">会員登録</a>
+        <a href="members.html">会員ページ</a>
+    </nav>
 </header>
 
-<main>
-    <p>ログイン成功！ここにコンテンツを入れる。</p>
-    <button id="logoutBtn" class="btn">ログアウト</button>
+<main class="members">
+    <h2>会員専用コンテンツ</h2>
+    <p>ここに運用情報・写真・裏話などを載せる。</p>
+    <button id="logoutBtn" class="btn secondary">ログアウト</button>
 </main>
 
-<script src="assets/js/auth.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>
