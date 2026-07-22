@@ -2,15 +2,34 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>ログイン</title>
+    <title>ログイン - 篠ノ井乗務区 Members</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- フォント -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
+<!-- 🔶 踏切ローディング -->
+<div id="loading">
+    <div class="crossing">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <p class="loading-text">読み込み中...</p>
+    </div>
+</div>
+
+<!-- 🔷 ヘッダー -->
 <header class="header">
-    <img src="assets/img/logo.png" class="logo">
+    <img src="assets/img/logo.png" class="logo" alt="篠ノ井乗務区ロゴ">
+
     <button class="hamburger" id="hamburgerBtn">☰</button>
+
     <nav id="navMenu">
         <a href="index.html">ホーム</a>
         <a href="login.html">ログイン</a>
@@ -19,20 +38,25 @@
     </nav>
 </header>
 
+<!-- 🔷 ログインフォーム -->
 <main class="form-box">
-    <h2>ログイン</h2>
+    <div class="station-title">ログイン</div>
+
     <form id="loginForm">
         <input type="text" id="loginId" placeholder="ユーザーID" required>
         <input type="password" id="loginPw" placeholder="パスワード" required>
         <button class="btn" type="submit">ログイン</button>
     </form>
 
+    <!-- エラーUI（カード型） -->
     <div id="loginError" class="alert hidden">
         <span class="alert-title">ログインに失敗しました</span>
         <span class="alert-text">IDまたはパスワードが違います。</span>
     </div>
 </main>
 
+<!-- JS -->
 <script src="assets/js/app.js"></script>
+
 </body>
 </html>
