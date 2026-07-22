@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>ログイン</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -25,7 +26,11 @@
         <input type="password" id="loginPw" placeholder="パスワード" required>
         <button class="btn" type="submit">ログイン</button>
     </form>
-    <p id="loginError" class="error"></p>
+
+    <div id="loginError" class="alert hidden">
+        <span class="alert-title">ログインに失敗しました</span>
+        <span class="alert-text">IDまたはパスワードが違います。</span>
+    </div>
 </main>
 
 <script src="assets/js/app.js"></script>
