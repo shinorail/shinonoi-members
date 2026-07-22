@@ -1,17 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>会員ページ - 篠ノ井乗務区</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 </head>
 <body>
-    <main>
-        <h2>フォロワー限定コンテンツ</h2>
-        <p>ここに写真・運用情報・裏話などを載せられます。</p>
-    </main>
-
-    <script src="assets/js/auth.js"></script>
+<header>
+    <h1>フォロワー限定コンテンツ</h1>
+</header>
+<main>
+    <p>ここに運用情報・写真・裏話などを載せる。</p>
+    <button id="logoutBtn" class="btn">ログアウト</button>
+</main>
+<script src="assets/js/auth.js"></script>
 </body>
 </html>
