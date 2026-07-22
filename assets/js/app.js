@@ -1,5 +1,5 @@
 /* ============================================
-   GAS API URL（あなたのURLをここに入れる）
+   GAS API URL（あなたのURL）
 ============================================ */
 const API_URL =
   "https://script.google.com/macros/s/AKfycbxkHgvz2zM-u-hi41Sq5Y8UnmLKmzEirvipYSHONG1Zno-GSUhDx147VXSQsVMXxuICPg/exec";
@@ -46,6 +46,9 @@ if (registerForm) {
 
     const res = await fetch(API_URL, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json", // ★必須
+      },
       body: JSON.stringify({
         mode: "register",
         name,
@@ -85,6 +88,9 @@ if (loginForm) {
 
     const res = await fetch(API_URL, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json", // ★必須
+      },
       body: JSON.stringify({
         mode: "login",
         userId,
