@@ -2,15 +2,34 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>会員ページ</title>
+    <title>会員ページ - 篠ノ井乗務区 Members</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- フォント -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
+<!-- 🔶 踏切ローディング -->
+<div id="loading">
+    <div class="crossing">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <p class="loading-text">読み込み中...</p>
+    </div>
+</div>
+
+<!-- 🔷 ヘッダー -->
 <header class="header">
-    <img src="assets/img/logo.png" class="logo">
+    <img src="assets/img/logo.png" class="logo" alt="篠ノ井乗務区ロゴ">
+
     <button class="hamburger" id="hamburgerBtn">☰</button>
+
     <nav id="navMenu">
         <a href="index.html">ホーム</a>
         <a href="login.html">ログイン</a>
@@ -19,12 +38,36 @@
     </nav>
 </header>
 
+<!-- 🔷 会員ページ本体 -->
 <main class="members">
-    <h2>会員専用コンテンツ</h2>
-    <p>ここに運用情報・写真・裏話などを載せる。</p>
+
+    <div class="station-title">会員専用ページ</div>
+
+    <p class="welcome-text">
+        ようこそ、<span id="userName"></span> さん。
+    </p>
+
+    <!-- 🔶 鉄道ギミック：運行情報ダッシュボード -->
+    <div class="train-status card">
+        <h3>運行情報</h3>
+        <p>篠ノ井線：平常運転</p>
+        <p>信越本線：遅延なし</p>
+        <p>しなの鉄道：平常運転</p>
+    </div>
+
+    <!-- 🔶 会員専用コンテンツ -->
+    <div class="card">
+        <h3>会員限定コンテンツ</h3>
+        <p>ここに運行情報・写真・裏話などを掲載できます。</p>
+    </div>
+
+    <!-- 🔶 ログアウト -->
     <button id="logoutBtn" class="btn secondary">ログアウト</button>
+
 </main>
 
+<!-- JS -->
 <script src="assets/js/app.js"></script>
+
 </body>
 </html>
