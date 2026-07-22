@@ -7,20 +7,27 @@
 </head>
 <body>
 
-<section class="form-box">
-    <h2>ログイン</h2>
+<header class="header">
+    <img src="assets/img/logo.png" class="logo">
+    <button class="hamburger" id="hamburgerBtn">☰</button>
+    <nav id="navMenu">
+        <a href="index.html">ホーム</a>
+        <a href="login.html">ログイン</a>
+        <a href="register.html">会員登録</a>
+        <a href="members.html">会員ページ</a>
+    </nav>
+</header>
 
+<main class="form-box">
+    <h2>ログイン</h2>
     <form id="loginForm">
-        <input type="text" id="userId" placeholder="ユーザーID" required>
-        <input type="password" id="password" placeholder="パスワード" required>
+        <input type="text" id="loginId" placeholder="ユーザーID" required>
+        <input type="password" id="loginPw" placeholder="パスワード" required>
         <button class="btn" type="submit">ログイン</button>
     </form>
+    <p id="loginError" class="error"></p>
+</main>
 
-    <p id="errorMsg" class="error"></p>
-
-    <a href="register.html">新規登録はこちら</a>
-</section>
-
-<script src="assets/js/auth.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>
