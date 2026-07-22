@@ -8,48 +8,49 @@ body {
 .header {
     background: #003366;
     color: #fff;
-    padding: 10px 20px;
+    padding: 10px 16px;
     display: flex;
     align-items: center;
 }
 .logo {
-    height: 36px;
-    margin-right: 16px;
+    height: 32px;
+    margin-right: 12px;
 }
 nav {
     display: flex;
-    gap: 16px;
+    gap: 12px;
 }
 nav a {
     color: #fff;
     text-decoration: none;
     font-size: 14px;
 }
-
-/* ハンバーガー */
 .hamburger {
     margin-left: auto;
     background: none;
     border: none;
     color: #fff;
-    font-size: 20px;
-    display: none; /* PCでは非表示 */
+    font-size: 22px;
+    display: none;
 }
 
 /* ヒーロー */
 .hero {
     text-align: center;
-    padding: 80px 20px;
+    padding: 60px 20px;
     background: linear-gradient(#003366, #005599);
     color: #fff;
+}
+.hero-buttons {
+    margin-top: 20px;
 }
 .btn {
     display: inline-block;
     padding: 10px 20px;
     background: #005599;
     color: #fff;
-    border: none;
     border-radius: 4px;
+    border: none;
     text-decoration: none;
     cursor: pointer;
     margin: 5px;
@@ -60,8 +61,8 @@ nav a {
 
 /* フォーム */
 .form-box {
-    max-width: 320px;
-    margin: 60px auto;
+    max-width: 360px;
+    margin: 40px auto;
     padding: 20px;
     background: #fff;
     border-radius: 8px;
@@ -71,10 +72,30 @@ input {
     width: 100%;
     padding: 10px;
     margin-bottom: 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
-.error {
-    color: red;
+
+/* エラーメッセージ（カード風） */
+.alert {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    background: #ffe5e5;
+    border: 1px solid #ff9999;
+    color: #660000;
     font-size: 13px;
+}
+.alert-title {
+    font-weight: 600;
+    display: block;
+}
+.alert-text {
+    display: block;
+    margin-top: 4px;
+}
+.hidden {
+    display: none;
 }
 
 /* 会員ページ */
@@ -113,13 +134,13 @@ input {
     100% { background: yellow; }
 }
 
-/* スマホ用 */
+/* スマホ対応 */
 @media (max-width: 768px) {
     nav {
         display: none;
         flex-direction: column;
         background: #003366;
-        padding: 10px 20px;
+        padding: 10px 16px;
     }
     .hamburger {
         display: block;
