@@ -1,63 +1,45 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>会員登録 - 篠ノ井乗務区 Members</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- フォント -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>会員登録 | Shinonoi Members</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-
-<!-- 🔶 踏切ローディング -->
-<div id="loading">
-    <div class="crossing">
-        <div class="light"></div>
-        <div class="light"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <p class="loading-text">読み込み中...</p>
-    </div>
-</div>
-
-<!-- 🔷 ヘッダー -->
-<header class="header">
-    <img src="assets/img/logo.png" class="logo" alt="篠ノ井乗務区ロゴ">
-
-    <button class="hamburger" id="hamburgerBtn">☰</button>
-
-    <nav id="navMenu">
-        <a href="index.html">ホーム</a>
-        <a href="login.html">ログイン</a>
-        <a href="register.html">会員登録</a>
-        <a href="members.html">会員ページ</a>
-    </nav>
-</header>
-
-<!-- 🔷 会員登録フォーム -->
-<main class="form-box">
-    <div class="station-title">会員登録</div>
-
+  <div class="register-container">
+    <h1>新規登録</h1>
     <form id="registerForm">
-        <input type="text" id="regName" placeholder="ユーザー名" required>
-        <input type="text" id="regId" placeholder="ユーザーID" required>
-        <input type="password" id="regPw" placeholder="パスワード" required>
-        <button class="btn" type="submit">登録する</button>
+      <label for="regId">メールアドレス</label>
+      <input type="email" id="regId" required />
+
+      <label for="regPw">パスワード</label>
+      <input type="password" id="regPw" required />
+
+      <button type="submit">登録する</button>
     </form>
+  </div>
 
-    <!-- 登録結果UI（カード型） -->
-    <div id="registerMsg" class="alert hidden">
-        <span class="alert-title">登録完了</span>
-        <span class="alert-text">ログインページからログインしてください。</span>
-    </div>
-</main>
+  <!-- Firebase登録処理 -->
+  <script type="module">
+    import { auth, createUserWithEmailAndPassword } from "./firebase.js";
 
-<!-- JS -->
-<script src="assets/js/app.js"></script>
+    const registerForm = document.getElementById("registerForm");
 
+    registerForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("regId").value;
+      const password = document.getElementById("regPw").value;
+
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        alert("登録完了！ログインページへ進んでください。");
+        window.location.href = "login.html";
+      } catch (error) {
+        alert("登録エラー: " + error.message);
+      }
+    });
+  </script>
 </body>
 </html>
