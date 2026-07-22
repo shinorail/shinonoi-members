@@ -4,21 +4,32 @@
     <meta charset="UTF-8">
     <title>篠ノ井乗務区 Members</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- フォント -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
+<!-- 🔶 踏切ローディング（黄色） -->
 <div id="loading">
     <div class="crossing">
+        <div class="light"></div>
+        <div class="light"></div>
         <div class="bar"></div>
         <div class="bar"></div>
-        <p>読み込み中...</p>
+        <p class="loading-text">読み込み中...</p>
     </div>
 </div>
 
+<!-- 🔷 ヘッダー（企業サイト風） -->
 <header class="header">
     <img src="assets/img/logo.png" class="logo" alt="篠ノ井乗務区ロゴ">
+
     <button class="hamburger" id="hamburgerBtn">☰</button>
+
     <nav id="navMenu">
         <a href="index.html">ホーム</a>
         <a href="login.html">ログイン</a>
@@ -27,15 +38,37 @@
     </nav>
 </header>
 
+<!-- 🔷 ヒーローセクション（企業サイト × 鉄道） -->
 <main class="hero">
-    <h1>篠ノ井乗務区 Members</h1>
-    <p>フォロワー限定・会員専用サイト（試作版）</p>
+    <div class="station-title">篠ノ井乗務区 Members</div>
+    <p class="hero-sub">フォロワー限定・企業品質の会員サイト</p>
+
     <div class="hero-buttons">
         <a href="login.html" class="btn">ログイン</a>
         <a href="register.html" class="btn secondary">会員登録</a>
     </div>
 </main>
 
+<!-- 🔷 サービス紹介（カードUI） -->
+<section class="cards">
+    <div class="card">
+        <h3>会員限定情報</h3>
+        <p>運行情報・写真・裏話などを公開。</p>
+    </div>
+
+    <div class="card">
+        <h3>安全な認証</h3>
+        <p>Googleスプレッドシート連携の本番ログイン。</p>
+    </div>
+
+    <div class="card">
+        <h3>鉄道ギミック</h3>
+        <p>踏切ローディング・発車標アニメなど。</p>
+    </div>
+</section>
+
+<!-- JS -->
 <script src="assets/js/app.js"></script>
+
 </body>
 </html>
