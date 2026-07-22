@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
     if (loading) {
         setTimeout(() => {
             loading.style.display = "none";
-        }, 1000); // 1秒で消える
+        }, 800); // 0.8秒で消える
     }
 });
 
@@ -18,7 +18,7 @@ if (hamburgerBtn && navMenu) {
     });
 }
 
-// 簡易ユーザーDB（localStorage）
+// 簡易ユーザーDB（後でスプレッドシートに差し替え可能）
 function loadDB() {
     return JSON.parse(localStorage.getItem("userDB") || "{}");
 }
@@ -36,8 +36,12 @@ if (registerForm) {
         const pw = document.getElementById("regPw").value;
 
         const db = loadDB();
+        const msgBox = document.getElementById("registerMsg");
+
         if (db[id]) {
-            document.getElementById("registerMsg").textContent =
+            msgBox.classList.remove("hidden");
+            msgBox.querySelector(".alert-title").textContent = "登録エラー";
+            msgBox.querySelector(".alert-text").textContent =
                 "そのユーザーIDは既に使われています。";
             return;
         }
@@ -45,8 +49,10 @@ if (registerForm) {
         db[id] = { name, pw };
         saveDB(db);
 
-        document.getElementById("registerMsg").textContent =
-            "登録完了しました。ログインページからログインしてください。";
+        msgBox.classList.remove("hidden");
+        msgBox.querySelector(".alert-title").textContent = "登録完了";
+        msgBox.querySelector(".alert-text").textContent =
+            "ログインページからログインしてください。";
     });
 }
 
@@ -59,17 +65,23 @@ if (loginForm) {
         const pw = document.getElementById("loginPw").value;
 
         const db = loadDB();
+        const errorBox = document.getElementById("loginError");
+
         if (db[id] && db[id].pw === pw) {
             localStorage.setItem("loggedInUser", id);
+            // 自動移動
             window.location.href = "members.html";
         } else {
-            document.getElementById("loginError").textContent =
-                "ログインに失敗しました。IDまたはパスワードが違います。";
+            errorBox.classList.remove("hidden");
+            errorBox.querySelector(".alert-title").textContent =
+                "ログインに失敗しました";
+            errorBox.querySelector(".alert-text").textContent =
+                "IDまたはパスワードが違います。";
         }
     });
 }
 
-// 会員ページ保護
+// 会員ページ保護（未ログインなら自動でログインへ）
 if (location.pathname.endsWith("members.html")) {
     const user = localStorage.getItem("loggedInUser");
     if (!user) {
