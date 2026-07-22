@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <title>ログイン - 篠ノ井乗務区</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Firebase CDN（試作用） -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 </head>
 <body>
 <main>
-    <h2>Xでログイン</h2>
-    <p>フォロワーのみ会員ページに入れます。</p>
-    <button id="loginBtn" class="btn">Xでログイン</button>
+    <h2>ログイン</h2>
+
+    <form id="loginForm">
+        <input type="text" id="userId" placeholder="IDを入力" required><br><br>
+        <input type="password" id="password" placeholder="パスワードを入力" required><br><br>
+        <button class="btn" type="submit">ログイン</button>
+    </form>
+
+    <p id="errorMsg" style="color:red;"></p>
 </main>
+
 <script src="assets/js/auth.js"></script>
 </body>
 </html>
